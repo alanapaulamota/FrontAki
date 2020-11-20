@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "723305382669",
+    "firebase_url": "https://frontaki-comunidade.firebaseio.com",
+    "project_id": "frontaki-comunidade",
+    "storage_bucket": "frontaki-comunidade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723305382669:android:f464bddceb30e67ac7e644",
+        "android_client_info": {
+          "package_name": "com.java.appMobile.frontaki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723305382669-qqdaitolp3kunuk3p4d9mdjfd7rfbvra.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.java.appMobile.frontaki",
+            "certificate_hash": "7dcff94a7feb7ad275b65d26cc385f9fdc7c3810"
+          }
+        },
+        {
+          "client_id": "723305382669-4m12b9ltff15ue13u9hsr7hq41pabqaj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmwmqofX_DHWOvgOipLdUoYwjWBIsq3fc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723305382669-4m12b9ltff15ue13u9hsr7hq41pabqaj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
