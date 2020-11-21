@@ -14,7 +14,7 @@
         android:layout_marginBottom="32dp"
         android:contentDescription="TODO"
         android:scrollbarSize="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/editNomeEntrar"
+        app:layout_constraintBottom_toTopOf="@+id/editCadastroNome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonCadastro" />
 
     <EditText
-        android:id="@+id/editNomeEntrar"
+        android:id="@+id/editCadastroNome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -129,6 +129,6 @@
         app:layout_constraintBottom_toTopOf="@+id/editCadastroEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNomeEntrar" />
+        app:layout_constraintTop_toBottomOf="@+id/editCadastroNome" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

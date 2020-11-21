@@ -22,11 +22,15 @@ import com.java.appMobile.frontaki.helper.ConfiguracaoFirebase;
 import com.java.appMobile.frontaki.helper.UsuarioFirebase;
 import com.java.appMobile.frontaki.model.Usuario;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 
 /**
  * Classe...
  */
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class CadastroActivity extends AppCompatActivity {
 
     private EditText campoNome, campoEmail, campoSenha, campoTelefone;
@@ -37,9 +41,6 @@ public class CadastroActivity extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
 
-    /**
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +112,7 @@ cadastrar(usuario);
                 this,
                 new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                    public void onComplete(@androidx.annotation.NonNull @NonNull Task<AuthResult> task) {
 
                         if( task.isSuccessful() ){
 
@@ -144,7 +145,7 @@ cadastrar(usuario);
 
                             progressBar.setVisibility( View.GONE );
 
-                            String erroExcecao = "";
+                            String erroExcecao;
                             try{
                                 throw task.getException();
                             }catch (FirebaseAuthWeakPasswordException e){
@@ -173,7 +174,7 @@ cadastrar(usuario);
 
     public void inicializarComponentes(){
 
-        campoNome       = findViewById(R.id.editNomeEntrar);
+        campoNome       = findViewById(R.id.editCadastroNome);
         campoEmail      = findViewById(R.id.editCadastroEmail);
         campoSenha      = findViewById(R.id.editCadastroSenha);
         botaoCadastrar  = findViewById(R.id.buttonCadastro);
