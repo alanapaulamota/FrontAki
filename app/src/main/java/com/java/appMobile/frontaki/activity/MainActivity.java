@@ -1,11 +1,15 @@
 package com.java.appMobile.frontaki.activity;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toolbar;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.java.appMobile.frontaki.R;
@@ -15,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,40 +27,68 @@ public class MainActivity extends AppCompatActivity {
 
         //Configura toolbar
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
-        toolbar.setTitle("FrontAki");
-        setSupportActionBar( toolbar );
 
-        //configuracoes de objetos
+        toolbar.setTitle("FrontAki");
+        setSupportActionBar();
+
+    //    //configuracoes de objetos
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
-        //Configurar bottom navigation view
-        configuraBottomNavigationView();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+     //   //Configurar bottom navigation view
+      //  configuraBottomNavigationView();
+     //   FragmentManager fragmentManager = getSupportFragmentManager();
+     //   FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
+       // fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    private void setSupportActionBar() {
+    }
 
+    //  @Override
+ //   public boolean onOptionsItemSelected(MenuItem item) {
+
+   //     switch (item.getItemId()){
+     //       case R.id.menu_sair :
+       //         deslogarUsuario();
+         //       startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+           //     break;
+       // }
+
+       // return super.onOptionsItemSelected(item);
+   //
+    //}
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main,menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.menu_sair :
-                deslogarUsuario();
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                break;
+            case R.id.menu_sair:
+deslogarUsuario();
+startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            break;
         }
 
         return super.onOptionsItemSelected(item);
-    }
+}
 
-    private void deslogarUsuario(){
-        try{
-            autenticacao.signOut();
-        }catch (Exception e){
+private void deslogarUsuario(){
+
+        try {
+autenticacao.signOut();
+        }catch (Exception e) {
             e.printStackTrace();
         }
-    }
+}
+
 
 }
