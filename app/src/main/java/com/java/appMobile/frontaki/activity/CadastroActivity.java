@@ -53,44 +53,38 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String textoNome = campoNome.getText().toString();
+                String textoNome  = campoNome.getText().toString();
                 String textoEmail = campoEmail.getText().toString();
-                String textoTelefone = campoTelefone.getText().toString();
-                String textoSenha = campoSenha.getText().toString();
+                String textosenha = campoSenha.getText().toString();
 
-                if(!textoNome.isEmpty()){
-                    if(!textoEmail.isEmpty()){
-                        if(!textoTelefone.isEmpty()){
-                            if(!textoSenha.isEmpty()){
+                if( !textoNome.isEmpty() ){
+                    if( !textoEmail.isEmpty() ){
+                        if( !textosenha.isEmpty() ){
 
-usuario = new Usuario();
-usuario.setNome (textoNome);
-usuario.setEmail(textoEmail);
-usuario.setTelefone(textoTelefone);
-usuario.setSenha(textoSenha);
-cadastrar(usuario);
-
-                            }else{
-                                Toast.makeText(CadastroActivity.this,
-                                        "Preencha a senha!",
-                                        Toast.LENGTH_SHORT).show();
-                            }
+                            usuario = new Usuario();
+                            usuario.setNome( textoNome );
+                            usuario.setEmail( textoEmail );
+                            usuario.setSenha( textosenha );
+                            cadastrar( usuario );
 
                         }else{
-                            Toast.makeText(CadastroActivity.this, "Preencha o telefone!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CadastroActivity.this,
+                                    "Preencha a senha!",
+                                    Toast.LENGTH_SHORT).show();
                         }
-
                     }else{
-                        Toast.makeText(CadastroActivity.this, "Preencha o email!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CadastroActivity.this,
+                                "Preencha o email!",
+                                Toast.LENGTH_SHORT).show();
                     }
-
                 }else{
-                    Toast.makeText(CadastroActivity.this,"Preencha o nome!", Toast.LENGTH_SHORT).show();
-    }
+                    Toast.makeText(CadastroActivity.this,
+                            "Preencha o nome!",
+                            Toast.LENGTH_SHORT).show();
+                }
 
 
             }
-
         });
 
 

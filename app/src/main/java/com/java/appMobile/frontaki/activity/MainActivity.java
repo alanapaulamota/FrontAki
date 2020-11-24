@@ -8,13 +8,34 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toolbar;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.java.appMobile.frontaki.R;
+import com.java.appMobile.frontaki.fragment.FeedFragment;
+import com.java.appMobile.frontaki.fragment.PerfilFragment;
+import com.java.appMobile.frontaki.fragment.PesquisaFragment;
+import com.java.appMobile.frontaki.fragment.PostagemFragment;
 import com.java.appMobile.frontaki.helper.ConfiguracaoFirebase;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+
+@Builder(builderMethodName = "mainBuilder")
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
@@ -34,32 +55,79 @@ public class MainActivity extends AppCompatActivity {
     //    //configuracoes de objetos
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
-     //   //Configurar bottom navigation view
-      //  configuraBottomNavigationView();
-     //   FragmentManager fragmentManager = getSupportFragmentManager();
-     //   FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+       //Configurar bottom navigation view
+       configuraBottomNavigationView();
+       FragmentManager fragmentManager = getSupportFragmentManager();
+       FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-       // fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
+        fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
 
     }
 
     private void setSupportActionBar() {
     }
 
-    //  @Override
- //   public boolean onOptionsItemSelected(MenuItem item) {
+    /**
+     * Configurações do botton navigation ++++
+     */
+    private void configuraBottomNavigationView(){
+        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottomNavigation);
+        bottomNavigationViewEx.enableAnimation(true);
+        bottomNavigationViewEx.enableItemShiftingMode(true);
+        bottomNavigationViewEx.enableShiftingMode(false);
+        bottomNavigationViewEx.setTextVisibility(true);
 
-   //     switch (item.getItemId()){
-     //       case R.id.menu_sair :
-       //         deslogarUsuario();
-         //       startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-           //     break;
-       // }
+        habilitarNavegacao(bottomNavigationViewEx);
 
-       // return super.onOptionsItemSelected(item);
-   //
-    //}
 
+   //     Menu menu = bottomNavigationViewEx.getMenu();
+   //     MenuItem menuItem = menu.getItem(0);
+   //     menuItem.setChecked(true);
+    }
+
+    /**
+     * @param viewEx
+     */
+    private void habilitarNavegacao(BottomNavigationViewEx viewEx){
+
+        viewEx.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            /**
+             * @param item
+             * @return
+             */
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                switch (item.getItemId()){
+                    case R.id.ic_home :
+                        fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
+                        return true;
+                    case R.id.ic_pesquisa :
+                        fragmentTransaction.replace(R.id.viewPager, new PesquisaFragment()).commit();
+                        return true;
+                    case R.id.ic_postagem :
+                        fragmentTransaction.replace(R.id.viewPager, new PostagemFragment()).commit();
+                        return true;
+                    case R.id.ic_perfil :
+                        fragmentTransaction.replace(R.id.viewPager, new PerfilFragment()).commit();
+                        return true;
+
+                }
+
+                return false;
+            }
+        });
+
+    }
+
+
+    /**
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu (Menu menu){
 
@@ -69,6 +137,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * @param item
+     * @return
+     */
 @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -81,6 +153,9 @@ startActivity(new Intent(getApplicationContext(),LoginActivity.class));
         return super.onOptionsItemSelected(item);
 }
 
+    /**
+     *
+     */
 private void deslogarUsuario(){
 
         try {

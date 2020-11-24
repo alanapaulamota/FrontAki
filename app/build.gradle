@@ -14,6 +14,13 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    android {
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -58,9 +65,13 @@ dependencies {
 
 
 dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     //Dependencias bottom
     implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
+
+    //Dependencias circle image view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     implementation 'androidx.mediarouter:mediarouter:1.2.0'
     implementation 'com.google.firebase:firebase-database:19.5.1'

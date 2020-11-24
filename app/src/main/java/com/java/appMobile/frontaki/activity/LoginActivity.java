@@ -1,5 +1,6 @@
 package com.java.appMobile.frontaki.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,10 +14,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.java.appMobile.frontaki.helper.ConfiguracaoFirebase;
 import com.java.appMobile.frontaki.model.Usuario;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
+@Builder(builderMethodName = "loginBuilder")
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,9 +36,6 @@ public class LoginActivity extends AppCompatActivity {
     private Usuario usuario;
 
     private FirebaseAuth autenticacao;
-
-    public LoginActivity() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +80,11 @@ public class LoginActivity extends AppCompatActivity {
             //       finish();
         }
     }
+
+    public void abrirCadastro(View view) {
+        Intent i = new Intent(LoginActivity.this, CadastroActivity.class);
+             startActivity(i);
+         }
 //
 //    public void validarLogin(Usuario usuario) {
 

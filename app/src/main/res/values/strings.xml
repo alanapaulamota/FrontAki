@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">FrontAki</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Feed">Feed</string>
+    <string name="Pesquisa">Pesquisa</string>
+    <string name="Postagem">Postagem</string>
+    <string name="Perfil">Perfil</string>
+    <string name="LogoCadastro">LogoCadastro</string>
+    <string name="perguntas">Perguntas</string>
+    <string name="respostas">Respostas</string>
+    <string name="editar_perfil">Editar Perfil</string>
+    <string name="salvos">Salvos</string>
+    <string name="ConfigEmail">E-mail</string>
+    <string name="ConfigDataAniv">Data de Aniversário:</string>
+    <string name="ConfigNome">Nome</string>
 </resources>
