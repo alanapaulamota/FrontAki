@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.EditarPerfilActivity">
+
+    <include layout="@layout/toolbar" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imagePerfil"
+            android:layout_width="117dp"
+            android:layout_height="167dp"
+            android:layout_gravity="center"
+            android:baselineAlignBottom="false"
+            android:paddingTop="30dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/avatar" />
+
+        <TextView
+            android:id="@+id/AlterarFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:text="@string/alterar_foto"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:verticalScrollbarPosition="defaultPosition" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditNomeUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_perfil_24"
+                android:drawableTint="@android:color/darker_gray"
+                android:enabled="false"
+                android:focusable="true"
+                android:hint="@string/nome_usu_rio"
+                android:includeFontPadding="true"
+                android:padding="15dp"
+                android:selectAllOnFocus="false"
+                android:singleLine="true"
+                tools:targetApi="m"
+                android:drawableLeft="@drawable/ic_perfil_24" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EditTelefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_baseline_phone_24"
+                    android:hint="@string/telefoneAlterar"
+                    android:padding="15dp"
+                    android:drawableStart="@drawable/ic_baseline_phone_24" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_email_24"
+                        android:hint="@string/emailAlterar"
+                        android:padding="15dp"
+                        android:drawableStart="@drawable/ic_baseline_email_24" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_baseline_key_24"
+                                android:hint="@string/senhaAlterar"
+                                android:padding="15dp"
+                                android:drawableStart="@drawable/ic_baseline_key_24" />
+
+                            <Button
+                                android:id="@+id/buttonEditConf"
+                                android:layout_width="match_parent"
+                                android:layout_height="140dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/background_botao_premium"
+                                android:clickable="true"
+                                android:cursorVisible="false"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:text="@string/salvarAlteracoes"
+                                android:textSize="14sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

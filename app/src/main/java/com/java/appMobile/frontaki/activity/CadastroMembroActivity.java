@@ -17,64 +17,82 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.java.appMobile.frontaki.R;
 import com.java.appMobile.frontaki.helper.ConfiguracaoFirebase;
 import com.java.appMobile.frontaki.helper.UsuarioFirebase;
-import com.java.appMobile.frontaki.model.Usuario;
+import com.java.appMobile.frontaki.model.UsuarioPremium;
+
+import java.util.Objects;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import static com.java.appMobile.frontaki.R.layout.activity_cadastro_membro;
 
 /**
  * Classe...
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class CadastroActivity extends AppCompatActivity {
+public class CadastroMembroActivity extends AppCompatActivity {
 
-    private EditText campoNome, campoEmail, campoSenha, campoTelefone;
-    private Button botaoCadastrar;
+    private EditText campoNome, campoEmail, campoSenha, campoTelefone, campoCpf;
+    private Button botaoCadastrarPremium;
     private ProgressBar progressBar;
 
-    private Usuario usuario;
+    private UsuarioPremium usuarioPremium;
 
     private FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro);
+        setContentView(activity_cadastro_membro);
         inicializarComponentes();
 
         //Cadastrar Usuario
         progressBar.setVisibility(View.GONE);
-        botaoCadastrar.setOnClickListener(v -> {
+        botaoCadastrarPremium.setOnClickListener(v -> {
 
             String textoNome = campoNome.getText().toString();
             String textoEmail = campoEmail.getText().toString();
             String textosenha = campoSenha.getText().toString();
+            String textoCpf = campoCpf.getText().toString();
+
 
             if (!textoNome.isEmpty()) {
                 if (!textoEmail.isEmpty()) {
                     if (!textosenha.isEmpty()) {
+                        if (!textoCpf.isEmpty()) {
 
-                        usuario = new Usuario();
-                        usuario.setNome(textoNome);
-                        usuario.setEmail(textoEmail);
-                        usuario.setSenha(textosenha);
-                        cadastrar(usuario);
 
+                            usuarioPremium = new UsuarioPremium();
+                            usuarioPremium.setNome(textoNome);
+                            usuarioPremium.setEmail(textoEmail);
+                            usuarioPremium.setSenha(textosenha);
+                            usuarioPremium.setCpf(textoCpf);
+
+                            cadastrarUserPremium(usuarioPremium);
+
+                        } else {
+                            Toast.makeText(CadastroMembroActivity.this,
+                                    "Preencha a senha!",
+                                    Toast.LENGTH_SHORT).show();
+                        }
                     } else {
-                        Toast.makeText(CadastroActivity.this,
-                                "Preencha a senha!",
+                        Toast.makeText(CadastroMembroActivity.this,
+                                "Preencha o email!",
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(CadastroActivity.this,
-                            "Preencha o email!",
+                    Toast.makeText(CadastroMembroActivity.this,
+                            "Preencha o nome!",
                             Toast.LENGTH_SHORT).show();
                 }
+
             } else {
-                Toast.makeText(CadastroActivity.this,
-                        "Preencha o nome!",
+                Toast.makeText(CadastroMembroActivity.this,
+                        "Preencha o cpf!",
                         Toast.LENGTH_SHORT).show();
+
+
             }
 
 
@@ -84,17 +102,12 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * Método responsável por cadastrar usuário com e-mail e senha
-     * e fazer validações ao fazer o cadastro
-     */
-    public void cadastrar(final Usuario usuario){
-
+    private void cadastrarUserPremium(UsuarioPremium usuarioPremium) {
         progressBar.setVisibility(View.VISIBLE);
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         autenticacao.createUserWithEmailAndPassword(
-                usuario.getEmail(),
-                usuario.getSenha()
+                usuarioPremium.getEmail(),
+                usuarioPremium.getSenha()
         ).addOnCompleteListener(
                 this,
                 task -> {
@@ -106,14 +119,14 @@ public class CadastroActivity extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
 
                             //Salvar dados no firebase
-                            String idUsuario = task.getResult().getUser().getUid();
-                            usuario.setId(idUsuario);
-                            usuario.salvar();
+                            String idUsuarioPremium = Objects.requireNonNull(task.getResult()).getUser().getUid();
+                            usuarioPremium.setId(idUsuarioPremium);
+                            usuarioPremium.salvar();
 
 
-                            UsuarioFirebase.atualizarNomeUsuario(usuario.getNome());
+                            UsuarioFirebase.atualizarNomeUsuario(usuarioPremium.getNome());
 
-                            Toast.makeText(CadastroActivity.this,
+                            Toast.makeText(CadastroMembroActivity.this,
                                     "Cadastro com sucesso",
                                     Toast.LENGTH_SHORT).show();
 
@@ -131,7 +144,7 @@ public class CadastroActivity extends AppCompatActivity {
 
                         String erroExcecao;
                         try {
-                            throw task.getException();
+                            throw Objects.requireNonNull(task.getException());
                         } catch (FirebaseAuthWeakPasswordException e) {
                             erroExcecao = "Digite uma senha mais forte!";
                         } catch (FirebaseAuthInvalidCredentialsException e) {
@@ -143,7 +156,7 @@ public class CadastroActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-                        Toast.makeText(CadastroActivity.this,
+                        Toast.makeText(CadastroMembroActivity.this,
                                 "Erro: " + erroExcecao,
                                 Toast.LENGTH_SHORT).show();
 
@@ -155,17 +168,15 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
 
-    public void inicializarComponentes() {
 
+    private void inicializarComponentes() {
         campoNome = findViewById(R.id.editCadNome);
         campoEmail = findViewById(R.id.editCadEmail);
         campoSenha = findViewById(R.id.editCadSenha);
-        botaoCadastrar = findViewById(R.id.buttonCadPremium);
+        campoCpf = findViewById(R.id.editCadPremiumCpf);
+        botaoCadastrarPremium = findViewById(R.id.buttonCadPremium);
         progressBar = findViewById(R.id.progressPremiumCad);
 
         campoNome.requestFocus();
-
     }
-
-
 }

@@ -1,6 +1,5 @@
 package com.java.appMobile.frontaki.activity;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -86,14 +85,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @param viewEx
+     * @param viewEx a view
      */
     private void habilitarNavegacao(BottomNavigationViewEx viewEx){
 
         viewEx.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             /**
-             * @param item
-             * @return
+             * @param item o item
+             * @return Retorna Verdadeiro....
              */
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -125,8 +124,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * @param menu
-     * @return
+     * @param menu o menu
+     * @return Retorna a op
      */
     @Override
     public boolean onCreateOptionsMenu (Menu menu){
@@ -136,34 +135,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-
-    /**
-     * @param item
-     * @return
-     */
-@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menu_sair:
-deslogarUsuario();
-startActivity(new Intent(getApplicationContext(),LoginActivity.class));
-            break;
-        }
-
-        return super.onOptionsItemSelected(item);
-}
-
-    /**
-     *
-     */
-private void deslogarUsuario(){
-
-        try {
-autenticacao.signOut();
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-}
 
 
 }

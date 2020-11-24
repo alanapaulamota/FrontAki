@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroud_degrade"
+    tools:context=".activity.CadastroMembroActivity">
+
+    <EditText
+        android:id="@+id/editCadPremiumCpf"
+        android:layout_width="363dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:autofillHints=""
+        android:background="@drawable/background_caixa_texto"
+        android:ems="10"
+        android:hint="@string/cpfCadPremium"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:text="@string/cpfCadPremium"
+        android:textColor="#A8101010"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerTipoPagamentoCadPremium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCadEmail" />
+
+    <EditText
+        android:id="@+id/editCadEmail"
+        android:layout_width="363dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:autofillHints=""
+        android:background="@drawable/background_caixa_texto"
+        android:ems="10"
+        android:hint="@string/emailCadPreimium"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="#A8101010"
+        android:textColorHint="#A8101010"
+        app:layout_constraintBottom_toTopOf="@+id/editCadPremiumCpf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCadSenha" />
+
+    <ImageView
+        android:id="@+id/imageLogoPremium"
+        android:layout_width="365dp"
+        android:layout_height="98dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/LogoCadastroPremium"
+        android:scrollbarSize="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/logo" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="321dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/bemvindoPremium"
+        android:text="@string/cadastre_se_no_premium_e_ganhe_benef_cios"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/editCadNome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.255"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageLogoPremium" />
+
+    <EditText
+        android:id="@+id/editCadNome"
+        android:layout_width="363dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:autofillHints=""
+        android:background="@drawable/background_caixa_texto"
+        android:ems="10"
+        android:hint="@string/nomeCadPremium"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:text="@string/nomeCadPremium"
+        android:textColor="#A8101010"
+        app:layout_constraintBottom_toTopOf="@+id/editCadSenha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/buttonCadPremium"
+        android:layout_width="363dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/background_botao"
+        android:onClick="botaoCadastrarPremium"
+        android:text="@string/cadastrarButtonPremium"
+        app:layout_constraintBottom_toTopOf="@+id/progressPremiumCad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTipoPagamentoCadPremium" />
+
+    <EditText
+        android:id="@+id/editCadSenha"
+        android:layout_width="363dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:autofillHints=""
+        android:background="@drawable/background_caixa_texto"
+        android:ems="10"
+        android:hint="@string/senhaCadPremium"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="#A8101010"
+        android:textColorHint="#A8101010"
+        app:layout_constraintBottom_toTopOf="@+id/editCadEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCadNome" />
+
+    <ProgressBar
+        android:id="@+id/progressPremiumCad"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCadPremium"
+        tools:layout_editor_absoluteX="0dp"
+        tools:visibility="visible" />
+
+    <Spinner
+        android:id="@+id/spinnerTipoPagamentoCadPremium"
+        android:layout_width="363dp"
+        android:layout_height="37dp"
+        android:background="@drawable/background_caixa_texto"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCadPremium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCadPremiumCpf" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

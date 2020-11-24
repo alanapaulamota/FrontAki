@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.java.appMobile.frontaki">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,8 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".activity.LoginActivity" android:theme="@style/AppThemeLogin"
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/AppThemeLogin"
             tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +26,13 @@
             android:name=".activity.CadastroActivity"
             android:theme="@style/AppThemeLogin" />
         <activity android:name=".activity.MainActivity" />
+
+        <activity android:name=".activity.EditarPerfilActivity" android:parentActivityName=".activity.MainActivity">
+
+
+
+        </activity>
+
     </application>
 
 </manifest>

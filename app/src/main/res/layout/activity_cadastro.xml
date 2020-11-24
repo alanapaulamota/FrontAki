@@ -8,7 +8,7 @@
     tools:context=".activity.CadastroActivity">
 
     <ImageView
-        android:id="@+id/imageLogo"
+        android:id="@+id/imageLogoCad"
         android:layout_width="411dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
@@ -18,7 +18,7 @@
         android:layout_marginBottom="24dp"
         android:contentDescription="@string/LogoCadastro"
         android:scrollbarSize="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/editCadastroNome"
+        app:layout_constraintBottom_toTopOf="@+id/editCadNome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -33,7 +33,7 @@
         app:layout_constraintGuide_begin="20dp" />
 
     <EditText
-        android:id="@+id/editCadastroEmail"
+        android:id="@+id/editCadEmail"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -45,26 +45,26 @@
         android:padding="10dp"
         android:textColor="#A8101010"
         android:textColorHint="#A8101010"
-        app:layout_constraintBottom_toTopOf="@+id/editCadastroSenha"
+        app:layout_constraintBottom_toTopOf="@+id/editCadSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCadastroNome" />
+        app:layout_constraintTop_toBottomOf="@+id/editCadNome" />
 
     <Button
-        android:id="@+id/buttonCadastro"
+        android:id="@+id/buttonCadPremium"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
         android:background="@drawable/background_botao"
         android:text="CADASTRAR"
-        app:layout_constraintBottom_toTopOf="@+id/buttonPremium"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRedPremium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCadastroSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/editCadSenha" />
 
     <EditText
-        android:id="@+id/editCadastroSenha"
+        android:id="@+id/editCadSenha"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -76,24 +76,24 @@
         android:padding="10dp"
         android:textColor="#A8101010"
         android:textColorHint="#A8101010"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCadastro"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCadPremium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCadastroEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/editCadEmail" />
 
     <ProgressBar
-        android:id="@+id/progressCadastro"
+        android:id="@+id/progressPremiumCad"
         style="?android:attr/progressBarStyle"
-        android:layout_width="82dp"
-        android:layout_height="66dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPremium" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonRedPremium" />
 
     <EditText
-        android:id="@+id/editCadastroNome"
+        android:id="@+id/editCadNome"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -104,15 +104,15 @@
         android:padding="10dp"
         android:text="Nome"
         android:textColor="#A8101010"
-        app:layout_constraintBottom_toTopOf="@+id/editCadastroEmail"
+        app:layout_constraintBottom_toTopOf="@+id/editCadEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/imageLogoCad" />
 
 
     <Button
-        android:id="@+id/buttonPremium"
+        android:id="@+id/buttonRedPremium"
         android:layout_width="186dp"
         android:layout_height="70dp"
         android:layout_marginTop="16dp"
@@ -122,9 +122,9 @@
         android:background="@drawable/background_botao_premium"
         android:text="CONTRATAR CONTA PREMIUM"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/progressCadastro"
+        app:layout_constraintBottom_toTopOf="@+id/progressPremiumCad"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCadastro" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonCadPremium" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"

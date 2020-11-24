@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textConfigNome" />
 
     <Button
-        android:id="@+id/EditarPerfil"
+        android:id="@+id/buttonEditarPerfil"
         android:layout_width="299dp"
         android:layout_height="26dp"
         android:layout_marginTop="8dp"
@@ -107,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditarPerfil" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonEditarPerfil" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"

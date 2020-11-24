@@ -14,4 +14,19 @@
     <string name="ConfigEmail">E-mail</string>
     <string name="ConfigDataAniv">Data de Aniversário:</string>
     <string name="ConfigNome">Nome</string>
+    <string name="nomeCadPremium">Nome</string>
+    <string name="cpfCadPremium">CPF</string>
+    <string name="senhaCadPremium">Senha</string>
+    <string name="cadastrarButtonPremium">CADASTRAR</string>
+    <string name="bemvindoPremium">BemVindoPremium</string>
+    <string name="cadastre_se_no_premium_e_ganhe_benef_cios">Cadastre-se no PREMIUM e ganhe benefícios!</string>
+    <string name="emailCadPreimium">Email</string>
+    <string name="LogoCadastroPremium">LogoCadastroPremium</string>
+    <string name="alterar_foto">Alterar Foto</string>
+    <string name="nomeAlterar">Nome Usuário</string>
+    <string name="nome_usu_rio">Nome Usuário</string>
+    <string name="telefoneAlterar">Telefone</string>
+    <string name="emailAlterar">E-mail</string>
+    <string name="senhaAlterar">Senha</string>
+    <string name="salvarAlteracoes">SALVAR ALTERAÇÕES</string>
 </resources>

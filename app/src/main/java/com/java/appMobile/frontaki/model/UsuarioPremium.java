@@ -11,13 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode()
 @Data
-public class Usuario implements Serializable {
+public class UsuarioPremium implements Serializable {
 
     private String id;
     private String nome;
     private String email;
+    private String telefone;
     private String senha;
+    private String cpf;
     private String caminhoFoto;
+
 
     public void salvar() {
     }
