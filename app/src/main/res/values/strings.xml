@@ -29,4 +29,8 @@
     <string name="emailAlterar">E-mail</string>
     <string name="senhaAlterar">Senha</string>
     <string name="salvarAlteracoes">SALVAR ALTERAÇÕES</string>
+    <string name="buttonSalvarAlt">SALVAR ALTERAÇÕES</string>
+    <string name="salvarAlteracoes">SALVAR ALTERAÇÕES</string>
+    <string name="buttonSalvarAlter">buttonSalvarAlter</string>
+    <string name="salvar_alteracoes">SALVAR ALTERAÇÕES</string>
 </resources>
